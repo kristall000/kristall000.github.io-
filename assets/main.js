@@ -17,7 +17,7 @@ btnOrder.onclick = async function () {
   const fdbckInfo = {
     fdbck__type: form.type.value.trim(),
     fdbck__name: form.name.value.trim().replace(/\d/g, ''),
-    fdbck__phone: form.phone.value.trim().replace(/\s/g,''),
+    fdbck__phone: form.phone.value.trim().replace(/\s/g, ''),
     fdbck__mail: form.mail.value.trim(),
     fdbck__text: form.text.value.trim()
   }
@@ -28,7 +28,8 @@ btnOrder.onclick = async function () {
   const
     allTypes = ['coop', 'privacy_security', 'func_request', 'review', 'question'],
     regEMail = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i,
-    regPhone = /^\+?[7-8]\(?\d{3}\)?\d{3}(-?\d{2}){2}$/;
+    // regPhone = /^\+?[7-8]\(?\d{3}\)?\d{3}(-?\d{2}){2}$/;
+    regPhone = /^(\+?7|8)?9\d{9}$/;
 
   typeValid = allTypes.indexOf(fdbckInfo.fdbck__type) != -1;
 
@@ -38,7 +39,7 @@ btnOrder.onclick = async function () {
   EmailValid = regEMail.test(fdbckInfo.fdbck__mail);
 
   phoneExists = fdbckInfo.fdbck__phone != "" && fdbckInfo.fdbck__phone != '+7(___)___-__-__';
-  PhoneValid = regPhone.test(fdbckInfo.fdbck__phone);
+  PhoneValid = regPhone.test(fdbckInfo.fdbck__phone.replace(/\D/g, ''));
 
   textValid = fdbckInfo.fdbck__text.length > 9;
 
@@ -74,7 +75,7 @@ btnOrder.onclick = async function () {
     errorbox.innerHTML = 'Запрос успешно отправлен!';
     errorbox.style = 'background-color: #4CAF50';
   }
-  
+
   const fdbckInfoJSON = JSON.stringify(fdbckInfo)
   // console.log(fdbckInfoJSON);
 
