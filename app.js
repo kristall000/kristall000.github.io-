@@ -10,14 +10,14 @@ const path = require('path')
 const port = process.env.PORT || 3000
 
 //Настройка подключения
-const sequelize = new Sequelize('kidskills_feedback', 'kidskills_user', 'user12345', {
-  host: 'localhost',
-  dialect: 'mysql'
-});
-// const sequelize = new Sequelize('us7fhwu6wsxs6owi', 'orahw809v48oq4f0', 'vbeuo2ur26abmi3o', {
-//   host: 'r6ze0q02l4me77k3.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
+// const sequelize = new Sequelize('kidskills_feedback', 'kidskills_user', 'user12345', {
+//   host: 'localhost',
 //   dialect: 'mysql'
 // });
+const sequelize = new Sequelize('us7fhwu6wsxs6owi', 'orahw809v48oq4f0', 'vbeuo2ur26abmi3o', {
+  host: 'r6ze0q02l4me77k3.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
+  dialect: 'mysql'
+});
 
 //Модель базы данных
 class FeedBacks extends Model { }
