@@ -1,0 +1,34 @@
+POST http://localhost:3000/api/fdbck
+Content-Type: application/json
+
+{
+    "fdbck__type":"coop",
+    "fdbck__name":"312312312321321",
+    "fdbck__phone":"+7(906)404-66-95",
+    "fdbck__mail":"bis210800@mail.ru",
+    "fdbck__text":"12345678121233223239102\n\n23322\n"
+}
+
+###
+
+POST http://localhost:3000/api/admin
+Content-Type: application/json
+
+{
+    "name":"KidsKills",
+    "password":"12345677"
+}
+
+###
+
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+    "name":"KidsKills",
+    "password":"12345677"
+}
+
+###
+GET http://localhost:3000/api/fdbck
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjIzNTk0MjE4LCJleHAiOjE2MjM3NjcwMTh9.ejh1nvGxcG8roKdWJReI-sTfpWTugKFyswRV4PaZ7wc
