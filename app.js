@@ -10,14 +10,14 @@ const path = require('path')
 const port = process.env.PORT || 3000
 
 //Настройка подключения
-// const sequelize = new Sequelize('kidskills_feedback', 'kidskills_user', 'user12345', 
-//   host: 'localhost',
-//   dialect: 'mysql'
-// ;
-const sequelize = new Sequelize('us7fhwu6wsxs6owi', 'orahw809v48oq4f0', 'vbeuo2ur26abmi3o', {
-  host: 'r6ze0q02l4me77k3.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
+const sequelize = new Sequelize('kidskills_feedback', 'kidskills_user', 'user12345', {
+  host: 'localhost',
   dialect: 'mysql'
 });
+// const sequelize = new Sequelize('us7fhwu6wsxs6owi', 'orahw809v48oq4f0', 'vbeuo2ur26abmi3o', {
+//   host: 'r6ze0q02l4me77k3.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
+//   dialect: 'mysql'
+// });
 
 //Модель базы данных
 class FeedBacks extends Model { }
@@ -77,15 +77,15 @@ function startApp() {
   //   res.send('Hello from express')
   // })
 
-  // app.post('/api/admin', async function (req, res) {
-  //   const passwordHash = createPasswordHash(req.body.password)
-  //   const newAdmin = await Admin.create({
-  //     name: req.body.name,
-  //     password: passwordHash
-  //   })
-  //   res.send(newAdmin)
-  // })
-git
+  app.post('/api/admin', async function (req, res) {
+    const passwordHash = createPasswordHash(req.body.password)
+    const newAdmin = await Admin.create({
+      name: req.body.name,
+      password: passwordHash
+    })
+    res.send(newAdmin)
+  })
+
   app.post('/api/login', async function (req, res) {
     const userFromDB = await Admin.findOne({ where: { name: req.body.name } })
     //@ts-ignore
