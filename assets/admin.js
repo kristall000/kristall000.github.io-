@@ -1,5 +1,5 @@
 const root = document.getElementById('root')
-const domain = 'http://localhost:3000'
+const domain = 'https://kidskills.herokuapp.com'
 
 const loginPage = /*html*/`
 <form class="login-form" onsubmit="loginSubmit(event)">
