@@ -120,6 +120,12 @@ function startApp() {
     }
   })
 
+  app.use((req, res, next) => {
+    res.append('Access-Control-Allow-Origin', '*'); // разрешает принимать запросы со всех доменов
+    res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE'); // какие методы в запросах разрешается принимать
+    next();
+  });
+
   app.use(express.static(path.join(__dirname, ''))) //public
 
   app.listen(port, function () {

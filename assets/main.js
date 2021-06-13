@@ -79,7 +79,7 @@ btnOrder.onclick = async function () {
   const fdbckInfoJSON = JSON.stringify(fdbckInfo)
   // console.log(fdbckInfoJSON);
 
-  const response = await fetch('/api/fdbck', {
+  const response = await fetch('https://kidskills.herokuapp.com/api/fdbck', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
